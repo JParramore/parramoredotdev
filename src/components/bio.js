@@ -1,22 +1,13 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-
-import { rhythm } from "../utils/typography"
+import Img from "gatsby-image"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 175, height: 175, quality: 100) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -25,10 +16,20 @@ const Bio = () => {
         siteMetadata {
           author {
             name
-            summary
           }
           social {
-            twitter
+            twitter {
+              name
+              url
+            }
+            linkedIn {
+              name
+              url
+            }
+            github {
+              name
+              url
+            }
           }
         }
       }
@@ -42,36 +43,34 @@ const Bio = () => {
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
-      {avatar && (
-        <Image
+    <div>
+      <div style={{
+        marginRight: '15px',
+        marginBottom: '5px',
+        marginTop: '5px',
+        float: 'left',
+      }}>
+        <Img
           fixed={avatar}
           alt={author?.name || ``}
-          style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            minWidth: 50,
-            borderRadius: `100%`,
-          }}
+          className="bio-avatar"
           imgStyle={{
-            borderRadius: `50%`,
+            borderRadius: `10%`,
           }}
         />
-      )}
-      {author?.name && (
+      </div>
+      <div className='bio'>
         <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
+          In my undergrad I used Python to identify the function of novel spider genes. At the NHS I used SQL to capture patient data anomalies and saved the hospital £1M+.
+          In my masters I built a learning managent system and pair programming tool for teachers and students using React and Python. I used to play esports professionally,
+          all over europe, but now get my kicks from <i>all tests passed</i>.
         </p>
-      )}
+        <p>
+          Follow me on <a href={`${social?.twitter.url || ``}`} style={{ textDecoration: "none" }}><strong>Twitter</strong></a>
+          , connect on <a href={`${social?.linkedIn.url || ``}`} style={{ textDecoration: "none" }}><strong>LinkedIn</strong></a>, or check out my projects on <a href={`${social?.github.url || ``}`} style={{ textDecoration: "none" }}><strong>GitHub</strong>
+          </a>.
+          </p>
+      </div>
     </div>
   )
 }

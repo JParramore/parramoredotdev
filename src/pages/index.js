@@ -1,10 +1,14 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
 import Layout from "../components/layout"
+import Bio from "../components/bio"
+import Contact from "../components/Contact"
 import SEO from "../components/seo"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { rhythm } from "../utils/typography"
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import StyledButton from '../components/styledbutton'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -13,19 +17,44 @@ const BlogIndex = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title="Home" />
         <Bio />
-        <p>No blog posts found. Add markdown posts to "content/blog" (or the directory you specified for the "gatsby-source-filesystem" plugin in gatsby-config.js).</p>
+        <p>No projects found :(</p>
       </Layout>
     )
   }
 
+  const projectLinks = (url, title, faIcon) => {
+
+    if (url) {
+      return <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={title}
+        style={{ paddingLeft: '10px' }}>
+        <FontAwesomeIcon
+          icon={faIcon}
+          size="1x"
+        /></a>
+    } else { return }
+
+  }
+
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Home" />
+      <h2>About</h2>
       <Bio />
+      <h2>Projects</h2>
       {posts.map((post) => {
         const title = post.frontmatter.title || post.fields.slug
+        const gitURL = post.frontmatter.github
+        const liveURL = post.frontmatter.live
+        const isBlog = post.frontmatter.blog
+
+        console.log(post.frontmatter.blog)
+
         return (
           <article
             key={post.fields.slug}
@@ -36,15 +65,23 @@ const BlogIndex = ({ data, location }) => {
               <h3
                 style={{
                   marginBottom: rhythm(1 / 4),
-                }}
-              >
+                  display: 'flex',
+                  justifyContent: 'space-between'
+                }}>
                 <Link
-                  style={{ boxShadow: `none` }}
-                  to={post.fields.slug}
-                  itemProp="url"
-                >
-                  <span itemProp="headline">{title}</span>
+                  style={{
+                    boxShadow: `none`,
+                  }}
+                  to={isBlog ? post.fields.slug : gitURL}
+                  itemProp="url">
+                  <span itemProp="headline">
+                    {title}
+                  </span>
                 </Link>
+                <div>
+                  {projectLinks(gitURL, post.frontmatter.title, faGithub)}
+                  {projectLinks(liveURL, post.frontmatter.title, faExternalLinkAlt)}
+                </div>
               </h3>
               <small>{post.frontmatter.date}</small>
             </header>
@@ -54,11 +91,15 @@ const BlogIndex = ({ data, location }) => {
                   __html: post.frontmatter.description || post.excerpt,
                 }}
                 itemProp="description"
+                style={{marginBottom: '0.4rem',}}
               />
+              {isBlog ? <p style={{color: '#969696'}}><Link to={post.fields.slug} itemProp="url" style={{textDecoration: 'none'}}><strong>Read more</strong></Link></p> : null}
             </section>
           </article>
         )
       })}
+      <h2>Contact</h2>
+      <Contact />
     </Layout>
   )
 }
@@ -82,6 +123,9 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          github
+          live
+          blog
         }
       }
     }

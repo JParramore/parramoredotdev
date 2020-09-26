@@ -19,7 +19,10 @@ const SEO = ({ description, lang, meta, title }) => {
             title
             description
             social {
-              twitter
+              twitter {
+                name
+                url
+              }
             }
           }
         }
@@ -36,7 +39,7 @@ const SEO = ({ description, lang, meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={defaultTitle ? `%s | Jerome Parramore` : null}
       meta={[
         {
           name: `description`,
