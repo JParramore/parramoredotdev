@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Bio from "../components/bio"
-import Contact from "../components/Contact"
+import Contact from "../components/contact"
 import SEO from "../components/seo"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { rhythm } from "../utils/typography"
