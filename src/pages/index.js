@@ -53,8 +53,6 @@ const BlogIndex = ({ data, location }) => {
         const liveURL = post.frontmatter.live
         const isBlog = post.frontmatter.blog
 
-        console.log(post.frontmatter.blog)
-
         return (
           <article
             key={post.fields.slug}
