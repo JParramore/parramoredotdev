@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/magnets"
+  to = "46.101.18.94"
+  status = 200
+  force = true
