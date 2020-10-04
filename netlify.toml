@@ -1,9 +1,7 @@
 [[redirects]]
   from = "/magnets"
   to = "http://46.101.18.94/"
-  status = 200
 
   [[redirects]]
   from = "/magnets/*"
   to = "http://46.101.18.94/:splat"
-  status = 200
