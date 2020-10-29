@@ -3,7 +3,7 @@ title: Tech Blog Search Engine
 date: "2020-10-29T22:12:03.284Z"
 description: "A search engine for technical blogs!"
 github: "https://github.com/JParramore/search-engine"
-live: "https://www.parramore.dev/search-engine"
+live: "https://www.parramore.dev/search"
 blog: false
 ---
 
