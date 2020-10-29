@@ -1,3 +1,6 @@
 [[redirects]]
   from = "/magnets"
   to = "http://46.101.18.94:49200"
+[[redirects]]
+  from = "/search-engine"
+  to = "http://46.101.18.94:8080S"

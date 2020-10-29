@@ -62,7 +62,7 @@ const Bio = () => {
       <div className='bio'>
         <p>
           In my undergrad I used Python to identify the function of novel spider genes. At the NHS I used SQL to capture patient data anomalies and saved the hospital £1M+.
-          In my masters I built a learning managent system and pair programming tool for teachers and students using React and Python. I used to play esports professionally,
+          In my masters I built a learning management system and pair programming tool for teachers and students using React and Python. I used to play esports professionally,
           all over europe, but now get my kicks from <i>all tests passed</i>.
         </p>
         <p>
