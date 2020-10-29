@@ -1,5 +1,5 @@
 ---
-title: Tech Blog Search Engine
+title: Search Engine for Technical Blogs 🔍
 date: "2020-10-29T22:12:03.284Z"
 description: "A search engine for technical blogs!"
 github: "https://github.com/JParramore/search-engine"
@@ -7,7 +7,7 @@ live: "https://www.parramore.dev/search"
 blog: false
 ---
 
-This project allows users to search technical blogs!
+This project allows users to search technical blogs! Built with Python, React, HTML, CSS, and SQLite.
 
 <br>
 
