@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import StyledButton from './styledButton';
+import StyledButton from './styledbutton';
 
 const Grid = styled.div`
 padding: 4px;
