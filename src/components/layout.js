@@ -15,27 +15,30 @@ const Layout = ({ location, title, children }) => {
 
   if (location.pathname === rootPath) {
     header = (
+      <div 
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'baseline'
+        }}>
       <h1
         style={{
           ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-          display: 'flex',
-          justifyContent: "space-between",
-          alignItems: 'center',
         }}
       >
         <Link
           style={{
             boxShadow: `none`,
             color: `inherit`,
+            textDecoration: 'none',
           }}
           to={`/`}
         >
           {title}
         </Link>
-        <StyledButton href='/resume.pdf' content='RESUME'/>
       </h1>
+      <StyledButton href='/resume.pdf' content='RESUME'/>
+      </div>
     )
   } else {
     header = (

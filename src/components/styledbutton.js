@@ -27,14 +27,10 @@ const Button = styled.a`
 
 const StyledButton = props => {
     return (
-        <div className="btn-container"
-            style={{
-                paddingLeft: "20px"
-            }}>
+        
             <Button href={props.href} target="_blank" className="styled-button">
                 {props.content}
         </Button>
-        </div>
     )
 };
 

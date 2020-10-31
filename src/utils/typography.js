@@ -3,8 +3,8 @@ import funstonTheme from 'typography-theme-funston'
 
 funstonTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
   'h1': {
-    marginBottom: rhythm(1),
-    marginTop: rhythm(2),
+    marginBottom: rhythm(0),
+    marginTop: rhythm(0),
     color: "#6d94de",
   },
   'h2': {
@@ -13,7 +13,7 @@ funstonTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     color: "#6d94de",
   },
   'h3': {
-    marginBottom: rhythm(1/2),
+    marginBottom: rhythm(1/4),
     marginTop: rhythm(1.5),
     color: "#99b4e8",
   }

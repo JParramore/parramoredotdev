@@ -1,86 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const Container = styled.div`
-width: 100%;
-height: 100%;
-display: flex;
-flex-flow: row nowrap;
-align-items: center;
-justify-content: center;
-`;
-
-const Form = styled.form`
-width: 100%;
-display: flex;
-flex-flow: column wrap;
-align-items: center;
-justify-content: center;
-`;
+import StyledButton from './styledButton';
 
 const Grid = styled.div`
+padding: 4px;
 width: 100%;
-padding: 5px;
 `;
 
 const Input = styled.input`
-font-family: 'Lato', sans-serif;
-font-size: 0.875em;
 width: 100%;
+font-size: 14px;
 padding: 5px;
-
-background: transparent;
-outline: none;
-color: #726659;
-
-border: solid 1px #b3aca7;
-border-bottom: none;
 `;
-
 
 const Message = styled.textarea`
 width: 100%;
-height: 110px;
-max-height: 110px;
-padding: 15px;
-
-background: transparent;
-outline: none;
-
-color: #726659;
-font-family: 'Lato', sans-serif;
-font-size: 0.875em;
-
-border: solid 1px #b3aca7;
-`;
-
-const Button = styled.button`
-width: 100%;
-
-padding: 10px;
-margin: 0px 0px 0px 0px;
-
-font-family: 'Lato', sans-serif;
-font-size: 0.875em;
-color: #b3aca7;
-
-outline:none;
-cursor: pointer;
-
-border: solid 1px #b3aca7;
-border-top: none;
+resize: none;
+font-size: 14px;
+padding: 5px;
 `;
 
 const Contact = () => {
 
     return (
-        <Container>
-            <Form name="Contact Form" method="POST" data-netlify="true" action='/'>
+            <form name="Contact Form" method="POST" data-netlify="true" action='/'>
                 <Input type="hidden" name="form-name" value="Contact Form" />
                 <div style={{
                     width: '100%',
                     display: 'flex',
-                    justifyContent: 'space-between'
+                    justifyContent: 'center',
                 }}>
                     <Grid>
                         <Input placeholder='Name' type="text" name="name" />
@@ -93,10 +41,9 @@ const Contact = () => {
                     <Message placeholder='Message' name="message" />
                 </Grid>
                 <Grid>
-                <Button type="submit">Send</Button>
+                <StyledButton content='SEND' type="submit">Send</StyledButton>
                 </Grid>
-            </Form>
-        </Container>
+            </form>
     )
 };
 

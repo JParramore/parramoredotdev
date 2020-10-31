@@ -5,10 +5,8 @@ import Bio from "../components/bio"
 import Contact from "../components/contact"
 import SEO from "../components/seo"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { rhythm } from "../utils/typography"
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import StyledButton from '../components/styledbutton'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -35,7 +33,7 @@ const BlogIndex = ({ data, location }) => {
         style={{ paddingLeft: '10px' }}>
         <FontAwesomeIcon
           icon={faIcon}
-          size="1x"
+          size="lg"
         /></a>
     } else { return }
 
@@ -60,27 +58,29 @@ const BlogIndex = ({ data, location }) => {
             itemType="http://schema.org/Article"
           >
             <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                  display: 'flex',
-                  justifyContent: 'space-between'
-                }}>
-                <Link
-                  style={{
-                    boxShadow: `none`,
-                  }}
-                  to={isBlog ? post.fields.slug : gitURL}
-                  itemProp="url">
-                  <span itemProp="headline">
-                    {title}
-                  </span>
-                </Link>
+              <div style={{
+                color: '#99b4e8',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'baseline'
+              }}>
+                <h3>
+                  <Link
+                    style={{
+                      boxShadow: `none`,
+                    }}
+                    to={isBlog ? post.fields.slug : gitURL}
+                    itemProp="url">
+                    <span itemProp="headline">
+                      {title}
+                    </span>
+                  </Link>
+                </h3>
                 <div>
-                  {projectLinks(gitURL, post.frontmatter.title, faGithub)}
-                  {projectLinks(liveURL, post.frontmatter.title, faExternalLinkAlt)}
+                {projectLinks(gitURL, post.frontmatter.title, faGithub)}
+                {projectLinks(liveURL, post.frontmatter.title, faExternalLinkAlt)}
                 </div>
-              </h3>
+              </div>
               <small>{post.frontmatter.date}</small>
             </header>
             <section>
@@ -89,9 +89,9 @@ const BlogIndex = ({ data, location }) => {
                   __html: post.frontmatter.description || post.excerpt,
                 }}
                 itemProp="description"
-                style={{marginBottom: '0.4rem',}}
+                style={{ marginBottom: '0.4rem', }}
               />
-              {isBlog ? <p style={{color: '#969696'}}><Link to={post.fields.slug} itemProp="url" style={{textDecoration: 'none'}}><strong>Read more</strong></Link></p> : null}
+              {isBlog ? <p style={{ color: '#969696' }}><Link to={post.fields.slug} itemProp="url" style={{ textDecoration: 'none' }}><strong>Read more</strong></Link></p> : null}
             </section>
           </article>
         )
