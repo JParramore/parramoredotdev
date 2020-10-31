@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components';
+import { graphql } from 'gatsby'
 
 const Box = styled.div`
 display: flex;

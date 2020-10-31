@@ -14,7 +14,7 @@ funstonTheme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
   },
   'h3': {
     marginBottom: rhythm(1/4),
-    marginTop: rhythm(1.5),
+    marginTop: rhythm(1/2),
     color: "#99b4e8",
   }
 })
