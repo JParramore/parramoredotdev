@@ -15,29 +15,31 @@ const Layout = ({ location, title, children }) => {
 
   if (location.pathname === rootPath) {
     header = (
-      <div 
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'baseline'
-        }}>
-      <h1
+      <div
         style={{
-          ...scale(1.5),
-        }}
-      >
-        <Link
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'baseline'
+        }}>
+        <h1
           style={{
-            boxShadow: `none`,
-            color: `inherit`,
-            textDecoration: 'none',
+            ...scale(1.5),
           }}
-          to={`/`}
         >
-          {title}
-        </Link>
-      </h1>
-      <StyledButton href='/resume.pdf' content='RESUME'/>
+          <Link
+            style={{
+              boxShadow: `none`,
+              color: `inherit`,
+              textDecoration: 'none',
+            }}
+            to={`/`}
+          >
+            {title}
+          </Link>
+        </h1>
+        <a href='/resume.pdf' style={{ textDecoration: "none" }}>
+          <StyledButton content='RESUME' />
+        </a>
       </div>
     )
   } else {
@@ -46,7 +48,7 @@ const Layout = ({ location, title, children }) => {
         style={{
           fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
-          float:"left",
+          float: "left",
         }}
       >
         <Link
@@ -63,7 +65,7 @@ const Layout = ({ location, title, children }) => {
     )
   }
 
-  
+
   return (
     <div
       style={{
@@ -76,12 +78,13 @@ const Layout = ({ location, title, children }) => {
       <header>{header}</header>
       <main>{children}</main>
       <footer>
-      <p>I'm always looking for interesting new projects and opportunities. Find me on one of my socials or shoot me an email at  <a href='mailto:jerome.parramore@gmail.com'><strong>jerome.parramore@gmail.com</strong></a>.</p>
-      <div style={{textAlign: 'center',
-                display: 'flex',
-                justifyContent: 'space-between',
-                  }}><p>
-      Built with Gatsby by Jerome Parramore. </p><Socials /></div>
+        <p>I'm always looking for interesting new projects and opportunities. Find me on one of my socials or shoot me an email at  <a href='mailto:jerome.parramore@gmail.com'><strong>jerome.parramore@gmail.com</strong></a>.</p>
+        <div style={{
+          textAlign: 'center',
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}><p>
+            Powered by <a href="https://gatsbyjs.com/">Gatsby.js</a>, served by Netlify. </p><Socials /></div>
       </footer>
     </div>
   )

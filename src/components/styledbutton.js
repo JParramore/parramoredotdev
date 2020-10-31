@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.a`
+const Button = styled.div`
     padding:0.3em 0.8em;
     border-style: solid;
     border-radius:2px;
@@ -27,9 +27,8 @@ const Button = styled.a`
 
 const StyledButton = props => {
     return (
-        
-            <Button href={props.href} target="_blank" className="styled-button">
-                {props.content}
+        <Button target="_blank" className="styled-button">
+            {props.content}
         </Button>
     )
 };

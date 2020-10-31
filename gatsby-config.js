@@ -13,11 +13,6 @@ module.exports = {
         faRef: `github`,
         url: `https://github.com/JParramore`,
       },
-      twitter: {
-        name: `twitter`,
-        faRef: `twitter`,
-        url: `https://twitter.com/romacscs`,
-      },
       linkedIn: {
         name: `LinkedIn`,
         faRef: `linkedin`,

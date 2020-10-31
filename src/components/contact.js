@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import StyledButton from './styledbutton';
 
@@ -21,8 +21,16 @@ padding: 5px;
 `;
 
 const Contact = () => {
+    const [submitted, setSubmitted] = useState(false);
 
-    return (
+    const handleSubmitted = () => {
+        setSubmitted(!submitted)
+    }
+
+    if (submitted) { return ( <h4 style={{paddingTop: "20px",paddingBottom: "20px"}}>📨 Thanks, I'll get back to you. </h4> ) } else {
+        return (
+
+
             <form name="Contact Form" method="POST" data-netlify="true" action='/'>
                 <Input type="hidden" name="form-name" value="Contact Form" />
                 <div style={{
@@ -41,10 +49,13 @@ const Contact = () => {
                     <Message placeholder='Message' name="message" />
                 </Grid>
                 <Grid>
-                <StyledButton content='SEND' type="submit">Send</StyledButton>
+                    <a style={{cursor: "pointer"}} type="submit" onClick={handleSubmitted}>
+                        <StyledButton content='SEND' />
+                    </a>
                 </Grid>
             </form>
-    )
+        )
+    }
 };
 
 export default Contact;

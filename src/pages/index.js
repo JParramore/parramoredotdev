@@ -77,8 +77,8 @@ const BlogIndex = ({ data, location }) => {
                   </Link>
                 </h3>
                 <div>
-                {projectLinks(gitURL, post.frontmatter.title, faGithub)}
-                {projectLinks(liveURL, post.frontmatter.title, faExternalLinkAlt)}
+                  {projectLinks(gitURL, post.frontmatter.title, faGithub)}
+                  {projectLinks(liveURL, post.frontmatter.title, faExternalLinkAlt)}
                 </div>
               </div>
               <small>{post.frontmatter.date}</small>

@@ -18,10 +18,7 @@ const Bio = () => {
             name
           }
           social {
-            twitter {
-              name
-              url
-            }
+
             linkedIn {
               name
               url
@@ -66,8 +63,7 @@ const Bio = () => {
           all over europe, but now get my kicks from <i>all tests passed</i>.
         </p>
         <p>
-          Follow me on <a href={`${social?.twitter.url || ``}`} style={{ textDecoration: "none" }}><strong>Twitter</strong></a>
-          , connect on <a href={`${social?.linkedIn.url || ``}`} style={{ textDecoration: "none" }}><strong>LinkedIn</strong></a>, or check out my projects on <a href={`${social?.github.url || ``}`} style={{ textDecoration: "none" }}><strong>GitHub</strong>
+          Connect with me on <a href={`${social?.linkedIn.url || ``}`} style={{ textDecoration: "none" }}><strong>LinkedIn</strong></a>, or check out my projects on <a href={`${social?.github.url || ``}`} style={{ textDecoration: "none" }}><strong>GitHub</strong>
           </a>.
           </p>
       </div>
