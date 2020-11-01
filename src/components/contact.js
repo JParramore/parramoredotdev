@@ -53,7 +53,7 @@ const Contact = () => {
     }
 
     if (submitted) { 
-        return ( <h4 style={{paddingTop: "20px",paddingBottom: "20px"}}>📨 Thanks, I'll get back to you. </h4> ) 
+        return ( <h4 style={{paddingTop: "20px",paddingBottom: "20px"}}><span role="img" aria-label="post-emoji">📨</span> Thanks, I'll get back to you. </h4> ) 
     } else {
         return (
             <form name="Contact Form" onSubmit={handleSubmit} method="POST" data-netlify="true" action='/'>
