@@ -23,15 +23,40 @@ padding: 5px;
 const Contact = () => {
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmitted = () => {
+    const handleSubmit = e => {
+        e.preventDefault()
         setSubmitted(!submitted)
+
+        const data = [...e.currentTarget.elements]
+
+        const formBody = encode(data)
+            
+        fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formBody
+          })
+            .then(data => console.log(data))
+            .catch(err => console.error(err));
     }
 
-    if (submitted) { return ( <h4 style={{paddingTop: "20px",paddingBottom: "20px"}}>📨 Thanks, I'll get back to you. </h4> ) } else {
+    const encode = data => {
+        return data.filter((elem) => !!elem.value)
+        .map(
+            (element) =>
+            encodeURIComponent(element.name) +
+            "=" +
+            encodeURIComponent(element.value)
+        ).join("&");
+    }
+
+    if (submitted) { 
+        return ( <h4 style={{paddingTop: "20px",paddingBottom: "20px"}}>📨 Thanks, I'll get back to you. </h4> ) 
+    } else {
         return (
-
-
-            <form name="Contact Form" method="POST" data-netlify="true" action='/'>
+            <form name="Contact Form" onSubmit={handleSubmit} method="POST" data-netlify="true" action='/'>
                 <Input type="hidden" name="form-name" value="Contact Form" />
                 <div style={{
                     width: '100%',
@@ -49,9 +74,7 @@ const Contact = () => {
                     <Message placeholder='Message' name="message" />
                 </Grid>
                 <Grid>
-                    <a style={{cursor: "pointer"}} type="submit" onClick={handleSubmitted}>
-                        <StyledButton content='SEND' />
-                    </a>
+                    <StyledButton type="submit" content='SEND' />
                 </Grid>
             </form>
         )

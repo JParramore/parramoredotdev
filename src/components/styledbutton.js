@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.div`
+const Button = styled.button`
     padding:0.3em 0.8em;
     border-style: solid;
     border-radius:2px;
@@ -16,6 +16,7 @@ const Button = styled.div`
     background-color:#99b4e8;
     text-align:center;
     transition: all 0.2s;
+    cursor:pointer;
 
 &:hover{
     color:#525252;
